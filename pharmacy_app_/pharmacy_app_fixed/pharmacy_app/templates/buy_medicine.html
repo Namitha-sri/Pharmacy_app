@@ -1,0 +1,18 @@
+<h2>Buy Medicines</h2>
+<form method="post">
+    {% csrf_token %}
+    <table border="1">
+        <tr>
+            <th>Name</th><th>Price</th><th>Stock</th><th>Quantity</th>
+        </tr>
+        {% for med in medicines %}
+        <tr>
+            <td>{{ med.name }}</td>
+            <td>₹{{ med.price }}</td>
+            <td>{{ med.stock }}</td>
+            <td><input type="number" name="quantity_{{ med.id }}" min="0" max="{{ med.stock }}" value="0"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Place Order</button>
+</form>

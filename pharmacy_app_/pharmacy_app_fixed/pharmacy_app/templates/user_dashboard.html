@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4faff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 30px auto;
+            max-width: 600px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #218838;
+        }
+
+        .logout {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logout a {
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Welcome, {{ request.user.username }}</h2>
+    </div>
+
+    <div class="container">
+        <p>This is your Pharmacy User Dashboard.</p>
+
+        <div class="nav-links">
+            {% if request.user.is_superuser %}
+                <a href="{% url 'add' %}">Add Medicine</a>
+            {% endif %}
+            <a href="{% url 'view' %}">View Medicines</a>
+        </div>
+
+        <div class="logout">
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+        </div>
+    </div>
+</body>
+</html>

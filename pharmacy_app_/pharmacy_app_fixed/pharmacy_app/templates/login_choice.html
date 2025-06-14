@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Type</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f5f9ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+        .box a {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Login As</h2>
+        <a href="{% url 'combined_login' %}">User Login</a>
+        <a href="/admin/">Admin Login</a>
+    </div>
+</body>
+</html>

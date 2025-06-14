@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Medicine</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">Add New Medicine</div>
+    <nav>
+        <a href="{% url 'login_choice' %}">Login Choice</a>  <!-- Now points to /choice/ -->
+        <a href="{% url 'add' %}">Add Medicine</a>
+        <a href="{% url 'view' %}">View Records</a>
+    </nav>
+    <div class="container">
+        <h2>Enter Medicine Details</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Add Medicine">
+        </form>
+    </div>
+    <div class="footer">© 2025 Online Pharmacy</div>
+</body>
+</html>
